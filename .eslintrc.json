@@ -8,6 +8,7 @@
     "react-app",
     "react-app/jest",
     "standard-with-typescript",
+    "eslint:recommended",
     "prettier"
   ],
   "overrides": [],
@@ -22,6 +23,9 @@
     "@typescript-eslint/no-floating-promises": 0,
     "@typescript-eslint/consistent-type-imports": 0,
     "@typescript-eslint/strict-boolean-expressions": 0,
-    "quotes": ["error", "double"]
+    "quotes": ["error", "double"],
+    "no-multiple-empty-lines": ["error", { "max": 0, "maxEOF": 0 }],
+    "no-mixed-spaces-and-tabs": "error",
+    "indent": ["error", 2]
   }
 }
