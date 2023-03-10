@@ -1,6 +1,13 @@
-import React from "react"
+import React from "react";
+
 export const Hello = () => {
-  return (
-    <div className="text-6xl font-bold underline">Hello</div>
-  )
-}
+	return (
+		<div>
+			<p>Parag1</p>
+			<p>Parag1</p>
+			<p>Parag1</p>
+			<p>Parag1</p>
+			<p>Parag1</p>
+		</div>
+	);
+};
