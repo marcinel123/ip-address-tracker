@@ -1,3 +1,7 @@
+import React from "react"
+import { Hello } from "./Hello";
 export const App = () => {
-  return <div className="text-lg">Ip-address-tracker!!</div>;
+  return <div className="text-6xl">Ip-address-tracker!!
+    <Hello/>
+  </div>;
 };
