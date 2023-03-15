@@ -2,7 +2,7 @@ import React from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
-export const MapComponent = () => {
+export const Map = () => {
 	return (
 		<MapContainer
 			className="h-4/5"

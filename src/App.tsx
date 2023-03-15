@@ -1,14 +1,14 @@
 import React from "react";
-import { DisplayDataComponent } from "./Components/DisplayDataComponent";
-import { MapComponent } from "./Components/MapComponent";
-import { SearchComponent } from "./Components/SearchComponent";
+import { LocationDetails } from "./Components/LocationDetails";
+import { Map } from "./Components/Map";
+import { Search } from "./Components/Search";
 
 export const App = () => {
 	return (
 		<>
-			<SearchComponent />
-			<DisplayDataComponent />
-			<MapComponent />
+			<Search />
+			<LocationDetails />
+			<Map />
 		</>
 	);
 };
