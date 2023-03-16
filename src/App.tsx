@@ -1,11 +1,14 @@
 import React from "react";
+import { LocationDetails } from "./Components/LocationDetails";
+import { Map } from "./Components/Map";
+import { Search } from "./Components/Search";
 
-import { Hello } from "./Hello";
 export const App = () => {
 	return (
-		<div className="text-xl">
-			Ip-address-tracker!!
-			<Hello />
-		</div>
+		<>
+			<Search />
+			<LocationDetails />
+			<Map />
+		</>
 	);
 };
