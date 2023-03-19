@@ -5,7 +5,7 @@ import "leaflet/dist/leaflet.css";
 export const Map = () => {
 	return (
 		<MapContainer
-			className="h-4/5"
+			className="h-full relative z-0"
 			center={[51.980267724142315, 19.257898535667213]}
 			zoom={13}
 			scrollWheelZoom={false}
