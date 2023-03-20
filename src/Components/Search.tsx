@@ -1,3 +1,5 @@
+import { LocationDetails } from "./LocationDetails";
+
 export const Search = () => {
 	return (
 		<div className="h-1/3 bg-bg-desktop flex flex-col justify-start items-center">
@@ -9,13 +11,15 @@ export const Search = () => {
 				<input
 					className="h-12 w-11/12 sm:w-3/6 rounded-l-xl pl-4 placeholder:text-md"
 					type="text"
-					placeholder="Search for any IP address or domain"
+					placeholder="
+			Search for any IP address or domain"
 					id="ip"
 				/>
 				<button className="w-1/12 max-w-2 bg-black text-white rounded-r-xl">
 					&gt;
 				</button>
 			</form>
+			<LocationDetails />
 		</div>
 	);
 };
