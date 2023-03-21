@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
 import api_baseUrl from "../api/api_baseUrl";
+import env from "react-dotenv";
 
 export const Search = () => {
 	const [ipAddress, setIpAddress] = useState("");
 
-	const apiKey: string = "at_5I9sUYamw5MsQycwQTbrB6gMIRezB";
+	console.log(process.env);
 
 	useEffect(() => {
 		const fetchLocation = async () => {
 			try {
 				const response = await api_baseUrl.get(
-					`/country?apiKey=${apiKey}&ipAddress=${ipAddress}`
+					`/country?apiKey=${process.env.REACT_APP_KEY}&ipAddress=${ipAddress}`
 				);
 				console.log(response.data);
 				console.log(ipAddress);
