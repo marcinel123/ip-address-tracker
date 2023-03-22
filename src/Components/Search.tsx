@@ -1,25 +1,14 @@
 import React, { useEffect, useState } from "react";
-import api_baseUrl from "../api/api_baseUrl";
-import env from "react-dotenv";
+import { useFetchLocation } from "../api/apiFetchLocation";
 
 export const Search = () => {
-	const [ipAddress, setIpAddress] = useState("");
+	const [ipAddress, setIpAddress] = useState("209.142.68.29");
+	const { fetchLocation } = useFetchLocation(ipAddress);
 
-	console.log(process.env);
+	console.log(process.env.REACT_APP_KEY);
+	console.log(ipAddress);
 
 	useEffect(() => {
-		const fetchLocation = async () => {
-			try {
-				const response = await api_baseUrl.get(
-					`/country?apiKey=${process.env.REACT_APP_KEY}&ipAddress=${ipAddress}`
-				);
-				console.log(response.data);
-				console.log(ipAddress);
-			} catch (err: any) {
-				console.log(err.response.data);
-				console.log(err.response.status);
-			}
-		};
 		fetchLocation();
 	}, [ipAddress]);
 
