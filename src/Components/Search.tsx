@@ -2,11 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useFetchLocation } from "../api/apiFetchLocation";
 
 export const Search = () => {
+	// added ip address from US just for checking is fetchLocation works fine
 	const [ipAddress, setIpAddress] = useState("209.142.68.29");
 	const { fetchLocation } = useFetchLocation(ipAddress);
-
-	console.log(process.env.REACT_APP_KEY);
-	console.log(ipAddress);
 
 	useEffect(() => {
 		fetchLocation();

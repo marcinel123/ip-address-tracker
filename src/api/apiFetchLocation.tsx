@@ -6,10 +6,10 @@ export const useFetchLocation = (ipAddress: string) => {
 			const response = await api_baseUrl.get(
 				`/country?apiKey=${process.env.REACT_APP_KEY}&ipAddress=${ipAddress}`
 			);
-			console.log(response.data);
-		} catch (err: any) {
-			console.log(err.response.data);
-			console.log(err.response.status);
+		} catch (err: unknown) {
+			if (err instanceof Error) {
+				console.log(err.message);
+			}
 		}
 	};
 	fetchLocation();
