@@ -1,15 +1,25 @@
-import { useEffect, useState } from "react";
+import { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
 import { useFetchLocation } from "../api/apiFetchLocation";
-import { LocationDetails } from "./LocationDetails";
 
-export const Search = () => {
+interface SearchProps {
+	setLocationData: Dispatch<SetStateAction<undefined>>;
+}
+
+export const Search = ({ setLocationData }: SearchProps) => {
 	// added ip address from US just for checking is fetchLocation works fine
-	const [ipAddress, setIpAddress] = useState("209.142.68.29");
+	const [ipAddress, setIpAddress] = useState("");
 	const { fetchLocation } = useFetchLocation(ipAddress);
+	console.log(ipAddress);
 
-	useEffect(() => {
+	const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+		console.log(e.target.value);
+		setIpAddress(e.target.value);
+	};
+
+	const handleButtonClick = () => {
 		fetchLocation();
-	}, [ipAddress, fetchLocation]);
+		setLocationData();
+	};
 
 	return (
 		<div className="h-1/3 bg-bg-desktop flex flex-col justify-start items-center">
@@ -24,12 +34,16 @@ export const Search = () => {
 					placeholder="
 			Search for any IP address or domain"
 					id="ip"
+					value={ipAddress}
+					onChange={handleInputChange}
 				/>
-				<button className="w-1/12 max-w-2 bg-black text-white rounded-r-xl">
+				<button
+					onClick={handleButtonClick}
+					className="w-1/12 max-w-2 bg-black text-white rounded-r-xl"
+				>
 					&gt;
 				</button>
 			</form>
-			<LocationDetails />
 		</div>
 	);
 };
