@@ -8,7 +8,7 @@ export const Search = () => {
 
 	useEffect(() => {
 		fetchLocation();
-	}, [ipAddress]);
+	}, [ipAddress, fetchLocation]);
 
 	return (
 		<div className="h-1/3 bg-bg-desktop flex flex-col justify-start items-center">
