@@ -1,6 +1,16 @@
+import { useEffect, useState } from "react";
+import { useFetchLocation } from "../api/apiFetchLocation";
 import { LocationDetails } from "./LocationDetails";
 
 export const Search = () => {
+	// added ip address from US just for checking is fetchLocation works fine
+	const [ipAddress, setIpAddress] = useState("209.142.68.29");
+	const { fetchLocation } = useFetchLocation(ipAddress);
+
+	useEffect(() => {
+		fetchLocation();
+	}, [ipAddress, fetchLocation]);
+
 	return (
 		<div className="h-1/3 bg-bg-desktop flex flex-col justify-start items-center">
 			<h1 className="text-2xl text-white font-semibold my-7">
