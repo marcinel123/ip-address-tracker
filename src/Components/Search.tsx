@@ -1,4 +1,10 @@
-import { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
+import React, {
+	ChangeEvent,
+	Dispatch,
+	SetStateAction,
+	useEffect,
+	useState,
+} from "react";
 import { useFetchLocation } from "../api/apiFetchLocation";
 
 interface SearchProps {
@@ -6,19 +12,26 @@ interface SearchProps {
 }
 
 export const Search = ({ setLocationData }: SearchProps) => {
-	// added ip address from US just for checking is fetchLocation works fine
 	const [ipAddress, setIpAddress] = useState("");
 	const { fetchLocation } = useFetchLocation(ipAddress);
-	console.log(ipAddress);
+
+	// I use here fetchLocation at the first render so with empty ipAddress I get my current Ip, location etc. before I enter any IP.
+	useEffect(() => {
+		fetchLocation().then((res) => {
+			setLocationData(res?.data);
+		});
+	}, []);
 
 	const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-		console.log(e.target.value);
 		setIpAddress(e.target.value);
 	};
 
-	const handleButtonClick = () => {
-		fetchLocation();
-		setLocationData();
+	const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+		e.preventDefault();
+		fetchLocation().then((res) => {
+			setLocationData(res?.data);
+		});
+		setIpAddress("");
 	};
 
 	return (
