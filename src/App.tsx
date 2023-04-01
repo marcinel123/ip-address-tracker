@@ -4,14 +4,14 @@ import { Map } from "./Components/Map";
 import { Search } from "./Components/Search";
 
 export const App = () => {
-	const [locationData, setLocationData] = useState();
+	const [locationData, setLocationData] = useState<undefined>();
 	console.log(locationData);
 
 	return (
 		<>
 			<Search setLocationData={setLocationData} />
-			<LocationDetails locationData={locationData} />
-			<Map />
+			{locationData ? <LocationDetails locationData={locationData} /> : ""}
+			{locationData ? <Map locationData={locationData} /> : ""}
 		</>
 	);
 };
