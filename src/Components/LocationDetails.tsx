@@ -1,4 +1,4 @@
-interface PropsType {
+interface LocationDetailsProps {
 	locationData: {
 		as: object;
 		ip: string;
@@ -10,7 +10,7 @@ interface PropsType {
 	};
 }
 
-export const LocationDetails = ({ locationData }: PropsType) => {
+export const LocationDetails = ({ locationData }: LocationDetailsProps) => {
 	const { ip, isp, location } = locationData;
 	const { country, timezone } = location;
 

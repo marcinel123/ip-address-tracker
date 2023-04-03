@@ -19,8 +19,6 @@ const customIcon = new Icon({
 export const Map = ({ locationData }: PropsType) => {
 	const { location } = locationData;
 	const { lat, lng } = location;
-	console.log(lat);
-	console.log(lng);
 	const position = [lat, lng];
 	return (
 		<MapContainer
