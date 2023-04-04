@@ -1,6 +1,6 @@
-import { MapContainer, Marker, TileLayer } from "react-leaflet";
+import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { Icon } from "leaflet";
+import { MarekPostion } from "./MarekPostion";
 
 interface PropsType {
 	locationData: {
@@ -11,19 +11,16 @@ interface PropsType {
 	};
 }
 
-const customIcon = new Icon({
-	iconUrl: "https://cdn-icons-png.flaticon.com/512/447/447031.png",
-	iconSize: [34, 34],
-});
-
 export const Map = ({ locationData }: PropsType) => {
 	const { location } = locationData;
 	const { lat, lng } = location;
-	const position = [lat, lng];
+	const positionLat: number = lat;
+	const postionLng: number = lng;
+
 	return (
 		<MapContainer
 			className="h-3/5 sm:h-full relative z-0"
-			center={position}
+			center={[positionLat, postionLng]}
 			zoom={13}
 			scrollWheelZoom={false}
 		>
@@ -31,7 +28,7 @@ export const Map = ({ locationData }: PropsType) => {
 				attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 				url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
 			/>
-			<Marker position={position} icon={customIcon} />
+			<MarekPostion positionLat={positionLat} postionLng={postionLng} />
 		</MapContainer>
 	);
 };
