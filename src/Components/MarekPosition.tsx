@@ -1,23 +1,22 @@
 import { Icon } from "leaflet";
 import React, { useEffect } from "react";
-import { Marker, useMap } from "react-leaflet";
+import { Marker } from "react-leaflet";
+import { useMapComp } from "./useMapComp";
 
-interface MarekPostionProps {
+interface MarekPositionProps {
 	positionLat: number;
 	postionLng: number;
 }
 
-export const MarekPostion = ({
+export const MarekPosition = ({
 	positionLat,
 	postionLng,
-}: MarekPostionProps) => {
-	const map = useMap();
+}: MarekPositionProps) => {
+	const { moveMap } = useMapComp(positionLat, postionLng);
 
 	useEffect(() => {
-		map.flyTo([positionLat, postionLng], 13, {
-			animate: true,
-		});
-	}, [map, positionLat, postionLng]);
+		moveMap();
+	}, [moveMap, positionLat, postionLng]);
 
 	const customIcon = new Icon({
 		iconUrl: "https://cdn-icons-png.flaticon.com/512/447/447031.png",

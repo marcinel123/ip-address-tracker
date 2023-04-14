@@ -1,8 +1,8 @@
 import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { MarekPostion } from "./MarekPostion";
+import { MarekPosition } from "./MarekPosition";
 
-interface PropsType {
+interface MapPropsType {
 	locationData: {
 		location: {
 			lat: number;
@@ -11,16 +11,14 @@ interface PropsType {
 	};
 }
 
-export const Map = ({ locationData }: PropsType) => {
+export const Map = ({ locationData }: MapPropsType) => {
 	const { location } = locationData;
 	const { lat, lng } = location;
-	const positionLat: number = lat;
-	const postionLng: number = lng;
 
 	return (
 		<MapContainer
 			className="h-3/5 sm:h-full relative z-0"
-			center={[positionLat, postionLng]}
+			center={[lat, lng]}
 			zoom={13}
 			scrollWheelZoom={false}
 		>
@@ -28,7 +26,7 @@ export const Map = ({ locationData }: PropsType) => {
 				attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 				url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
 			/>
-			<MarekPostion positionLat={positionLat} postionLng={postionLng} />
+			<MarekPosition positionLat={lat} postionLng={lng} />
 		</MapContainer>
 	);
 };

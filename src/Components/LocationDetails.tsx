@@ -47,7 +47,7 @@ export const LocationDetails = ({ locationData }: LocationDetailsProps) => {
 					ISP
 				</p>
 				<p className="text-s sm:text-xs text-black font-bold my-1 sm:my-3">
-					{isp.substring(0, 10)}
+					{isp.substring(0, 20)}
 				</p>
 			</div>
 		</div>
