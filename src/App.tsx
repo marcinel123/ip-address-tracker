@@ -4,7 +4,7 @@ import { Map } from "./Components/Map";
 import { Search } from "./Components/Search";
 
 export const App = () => {
-	const [locationData, setLocationData] = useState<undefined>();
+	const [locationData, setLocationData] = useState();
 
 	return (
 		<>

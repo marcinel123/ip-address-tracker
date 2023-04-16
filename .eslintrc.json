@@ -26,7 +26,6 @@
 		"@typescript-eslint/restrict-template-expressions": 0,
 		"quotes": ["error", "double"],
 		"no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 0 }],
-		"no-mixed-spaces-and-tabs": "error",
 		"no-console": ["error", { "allow": [""] }]
 	}
 }

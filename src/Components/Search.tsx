@@ -35,7 +35,7 @@ export const Search = ({ setLocationData }: SearchProps) => {
 	};
 
 	return (
-		<div className="h-2/5 sm:h-1/3 bg-bg-desktop flex flex-col justify-start items-center -z-10">
+		<div className="h-2/5 sm:h-1/3 bg-bg-desktop bg-no-repeat bg-cover flex flex-col justify-start items-center -z-10">
 			<h1 className="text-l text-white font-semibold my-7">
 				IP Address Tracker
 			</h1>

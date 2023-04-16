@@ -1,18 +1,23 @@
-interface LocationDetailsProps {
-	locationData: {
-		as: object;
-		ip: string;
-		isp: string;
-		location: {
-			country: string;
-			timezone: string;
-			city: string;
-			region: string;
-		};
-	};
+export interface LocationDetailsProps {
+	locationData:
+		| {
+				as: object;
+				ip: string;
+				isp: string;
+				location: {
+					country: string;
+					timezone: string;
+					city: string;
+					region: string;
+				};
+		  }
+		| undefined;
 }
 
 export const LocationDetails = ({ locationData }: LocationDetailsProps) => {
+	if (!locationData) {
+		return null;
+	}
 	const { ip, isp, location } = locationData;
 	const { country, timezone, city, region } = location;
 

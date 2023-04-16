@@ -3,15 +3,20 @@ import "leaflet/dist/leaflet.css";
 import { MarekPosition } from "./MarekPosition";
 
 interface MapPropsType {
-	locationData: {
-		location: {
-			lat: number;
-			lng: number;
-		};
-	};
+	locationData:
+		| {
+				location: {
+					lat: number;
+					lng: number;
+				};
+		  }
+		| undefined;
 }
 
 export const Map = ({ locationData }: MapPropsType) => {
+	if (!locationData) {
+		return null;
+	}
 	const { location } = locationData;
 	const { lat, lng } = location;
 
