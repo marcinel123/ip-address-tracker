@@ -1,6 +1,6 @@
 import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { MarekPosition } from "./MarekPosition";
+import { MarekPosition } from "./MarkerPosition/MarekPosition";
 
 interface MapPropsType {
 	locationData:

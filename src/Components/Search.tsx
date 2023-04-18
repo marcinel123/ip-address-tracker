@@ -12,8 +12,9 @@ interface SearchProps {
 }
 
 export const Search = ({ setLocationData }: SearchProps) => {
+
 	const [ipAddress, setIpAddress] = useState("");
-	const { fetchLocation } = useFetchLocation(ipAddress);
+	const { fetchLocation, isError } = useFetchLocation(ipAddress);
 
 	// I use here fetchLocation at the first render so with empty ipAddress I get my current Ip, location etc. before I enter any IP.
 	useEffect(() => {
@@ -29,13 +30,19 @@ export const Search = ({ setLocationData }: SearchProps) => {
 	const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
 		e.preventDefault();
 		fetchLocation().then((res) => {
+			// if (res.name === "AxiosError") {
+			// 	setIsError(true)
+			// } else {
+			// 	setIsError(false)
+			// }
 			setLocationData(res?.data);
-		});
+			console.log(isError)
+		})
 		setIpAddress("");
 	};
 
 	return (
-		<div className="h-2/5 sm:h-1/3 bg-bg-desktop bg-no-repeat bg-cover flex flex-col justify-start items-center -z-10">
+		<div className="h-2/5 bg-bg-desktop bg-no-repeat bg-cover flex flex-col justify-start items-center -z-10">
 			<h1 className="text-l text-white font-semibold my-7">
 				IP Address Tracker
 			</h1>
@@ -57,6 +64,7 @@ export const Search = ({ setLocationData }: SearchProps) => {
 					&gt;
 				</button>
 			</form>
+			{isError ? <p>Please enter a valid IP address</p> : null}
 		</div>
 	);
 };

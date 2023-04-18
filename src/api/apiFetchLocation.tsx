@@ -1,6 +1,8 @@
+import { useState } from "react";
 import api_baseUrl from "./api_baseUrl";
 
 export const useFetchLocation = (ipAddress: string) => {
+	const [isError, setIsError] = useState({});
 	const fetchLocation = async () => {
 		try {
 			const response = await api_baseUrl.get(
@@ -8,11 +10,11 @@ export const useFetchLocation = (ipAddress: string) => {
 			);
 			return response;
 		} catch (err: unknown) {
-			if (err instanceof Error) {
-				console.log(err.message);
+			if (err) {
+				setIsError(err)
 			}
 		}
 	};
 
-	return { fetchLocation };
+	return { fetchLocation, isError };
 };
