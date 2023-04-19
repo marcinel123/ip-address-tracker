@@ -12,11 +12,10 @@ interface SearchProps {
 }
 
 export const Search = ({ setLocationData }: SearchProps) => {
-
+	const regex = (/^(([0-9.]?)*)+$/);
 	const [ipAddress, setIpAddress] = useState("");
-	const { fetchLocation, isError } = useFetchLocation(ipAddress);
-
-	// I use here fetchLocation at the first render so with empty ipAddress I get my current Ip, location etc. before I enter any IP.
+	const { fetchLocation, isError, setIsError } = useFetchLocation(ipAddress);
+	
 	useEffect(() => {
 		fetchLocation().then((res) => {
 			setLocationData(res?.data);
@@ -24,21 +23,31 @@ export const Search = ({ setLocationData }: SearchProps) => {
 	}, []);
 
 	const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+		if (e.target.value === "" || !regex.test(ipAddress)){
+			setIsError(true)
+		} else {
+			setIsError(false)
+		}
 		setIpAddress(e.target.value);
 	};
 
 	const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
 		e.preventDefault();
-		fetchLocation().then((res) => {
-			// if (res.name === "AxiosError") {
-			// 	setIsError(true)
-			// } else {
-			// 	setIsError(false)
-			// }
-			setLocationData(res?.data);
-			console.log(isError)
-		})
-		setIpAddress("");
+		
+		if (ipAddress === "" || !regex.test(ipAddress)){
+			setIsError(true)
+		}  else {
+			fetchLocation().then((res) => {
+				if (res) {
+					setLocationData(res?.data);
+				} else {
+					setIsError(true)
+					return null
+				}
+			})
+			setIpAddress("");
+		}
+		
 	};
 
 	return (
@@ -64,7 +73,7 @@ export const Search = ({ setLocationData }: SearchProps) => {
 					&gt;
 				</button>
 			</form>
-			{isError ? <p>Please enter a valid IP address</p> : null}
+			{isError ? <p className="text-s text-white font-semibold">Please enter a valid IP address</p> : null}
 		</div>
 	);
 };
