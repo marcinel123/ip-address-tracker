@@ -51,14 +51,14 @@ export const Search = ({ setLocationData }: SearchProps) => {
 	};
 
 	return (
-		<div className="h-2/5 bg-bg-desktop bg-no-repeat bg-cover flex flex-col justify-start items-center -z-10">
-			<h1 className="text-l text-white font-semibold my-7">
+		<div className="h-1/2 sm:h-2/5 bg-bg-desktop bg-no-repeat bg-cover flex flex-col justify-start items-center ">
+			<h1 className="text-l text-white font-semibold my-6 mb-4">
 				IP Address Tracker
 			</h1>
 			<form className="w-11/12 sm:w-3/5 flex flex-row justify-center sm:mb-20">
 				<label htmlFor="ip"></label>
 				<input
-					className="h-20 sm:h-14 w-11/12 sm:w-4/6 rounded-l-xl pl-4 placeholder:text-md"
+					className="h-16 sm:h-14 w-11/12 sm:w-4/6 rounded-l-xl pl-4 placeholder:text-md"
 					type="text"
 					placeholder="
 			Search for any IP address or domain"
@@ -73,7 +73,7 @@ export const Search = ({ setLocationData }: SearchProps) => {
 					&gt;
 				</button>
 			</form>
-			{isError ? <p className="text-s text-white font-semibold">Please enter a valid IP address</p> : null}
+			{isError ? <p className="text-s text-white font-semibold sm:-mt-20">Please enter a valid IP address</p> : null}
 		</div>
 	);
 };

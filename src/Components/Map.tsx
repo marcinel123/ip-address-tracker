@@ -22,7 +22,7 @@ export const Map = ({ locationData }: MapPropsType) => {
 
 	return (
 		<MapContainer
-			className="h-3/5 sm:h-full relative z-0"
+			className="h-1/2 sm:h-full relative z-0"
 			center={[lat, lng]}
 			zoom={13}
 			scrollWheelZoom={false}
