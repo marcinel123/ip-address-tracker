@@ -24,7 +24,7 @@ export const LocationDetails = ({ locationData }: LocationDetailsProps) => {
 	const { country, timezone, city} = location;
 
 	return (
-		<div className="sm:divide-x divide-line-color w-11/12 sm:w-3/4 z-10 p-4 relative translate-y-24 sm:-translate-y-2 bg-white mx-auto -mb-24 -mt-52 sm:-mb-16 sm:-mt-14 flex flex-col sm:flex-row items-center rounded-2xl">
+		<div className="sm:divide-x divide-line-color w-11/12 sm:w-3/4 z-10 p-4 relative -mb-32 -mt-28 sm:-translate-y-2 bg-white mx-auto sm:-mb-16 sm:-mt-14 flex flex-col sm:flex-row items-center rounded-2xl">
 			<div className="flex flex-col sm:w-1/4 pl-4 items-center sm:items-start sm:pl-1">
 				<p className="text-xs sm:text-xxs mt-1 sm:mt-3 sm:mb-0 text-text-color font-bold">
 					IP ADDRESS
