@@ -5,16 +5,17 @@ import React, {
 	useEffect,
 	useState,
 } from "react";
-import { useFetchLocation } from "../api/apiFetchLocation";
+import { useFetchLocation } from "../api/useFetchLocation";
 
 interface SearchProps {
 	setLocationData: Dispatch<SetStateAction<undefined>>;
 }
 
-export const Search = ({ setLocationData }: SearchProps) => {
+export const IpAddressForm = ({ setLocationData }: SearchProps) => {
 	const regex = (/^(([0-9.]?)*)+$/);
+	const [err, setErr] = useState(false)
 	const [ipAddress, setIpAddress] = useState("");
-	const { fetchLocation, isError, setIsError } = useFetchLocation(ipAddress);
+	const { fetchLocation, isApiErr} = useFetchLocation(ipAddress);
 	
 	useEffect(() => {
 		fetchLocation().then((res) => {
@@ -24,9 +25,9 @@ export const Search = ({ setLocationData }: SearchProps) => {
 
 	const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
 		if (e.target.value === "" || !regex.test(ipAddress)){
-			setIsError(true)
+			setErr(true)
 		} else {
-			setIsError(false)
+			setErr(false)
 		}
 		setIpAddress(e.target.value);
 	};
@@ -35,13 +36,12 @@ export const Search = ({ setLocationData }: SearchProps) => {
 		e.preventDefault();
 		
 		if (ipAddress === "" || !regex.test(ipAddress)){
-			setIsError(true)
+			setErr(true)
 		}  else {
 			fetchLocation().then((res) => {
 				if (res) {
 					setLocationData(res?.data);
 				} else {
-					setIsError(true)
 					return null
 				}
 			})
@@ -73,7 +73,8 @@ export const Search = ({ setLocationData }: SearchProps) => {
 					&gt;
 				</button>
 			</form>
-			{isError ? <p className="text-s text-white font-semibold sm:-mt-20">Please enter a valid IP address</p> : null}
+			{err ? <p className="text-s text-white font-semibold sm:-mt-20">Please enter a valid IP address</p> : null}
+			{isApiErr ? <p className="text-s text-white font-semibold sm:-mt-20">The IP address must be wrong as there is no response from Geo server.</p> : null}
 		</div>
 	);
 };

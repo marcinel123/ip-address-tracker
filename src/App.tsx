@@ -1,17 +1,15 @@
 import React, { useState } from "react";
-import { LocationDetails } from "./Components/LocationDetails";
+import { LocationDetailsPanel } from "./Components/LocationDetailsPanel/LocationDetailsPanel";
 import { Map } from "./Components/Map";
-import { Search } from "./Components/Search";
+import { IpAddressForm } from "./Components/IpAddressForm";
 
 export const App = () => {
 	const [locationData, setLocationData] = useState();
 
 	return (
 		<>
-			<Search setLocationData={setLocationData} />
-
-			<LocationDetails locationData={locationData} />
-
+			<IpAddressForm setLocationData={setLocationData} />
+			<LocationDetailsPanel locationData={locationData} />
 			<Map locationData={locationData} />
 		</>
 	);

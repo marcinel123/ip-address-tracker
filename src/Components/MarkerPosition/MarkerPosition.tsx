@@ -3,15 +3,15 @@ import React, { useEffect } from "react";
 import { Marker } from "react-leaflet";
 import { useMapComp } from "./useMapComp";
 
-interface MarekPositionProps {
+interface MarkerPositionProps {
 	positionLat: number;
 	postionLng: number;
 }
 
-export const MarekPosition = ({
+export const MarkerPosition = ({
 	positionLat,
 	postionLng,
-}: MarekPositionProps) => {
+}: MarkerPositionProps) => {
 	const { moveMap } = useMapComp(positionLat, postionLng);
 
 	useEffect(() => {

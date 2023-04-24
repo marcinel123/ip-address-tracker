@@ -1,6 +1,6 @@
 import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { MarekPosition } from "./MarkerPosition/MarekPosition";
+import { MarkerPosition } from "./MarkerPosition/MarkerPosition";
 
 interface MapPropsType {
 	locationData:
@@ -31,7 +31,7 @@ export const Map = ({ locationData }: MapPropsType) => {
 				attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 				url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
 			/>
-			<MarekPosition positionLat={lat} postionLng={lng} />
+			<MarkerPosition positionLat={lat} postionLng={lng} />
 		</MapContainer>
 	);
 };
