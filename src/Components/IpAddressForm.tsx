@@ -7,47 +7,68 @@ import React, {
 } from "react";
 import { useFetchLocation } from "../api/useFetchLocation";
 
-interface SearchProps {
-	setLocationData: Dispatch<SetStateAction<undefined>>;
-}
+// interface SearchProps {
+// 	setLocationData: Dispatch<SetStateAction<undefined>>;
+// }
 
-export const IpAddressForm = ({ setLocationData }: SearchProps) => {
+export const IpAddressForm = () => {
 	const regex = (/^(([0-9.]?)*)+$/);
 	const [err, setErr] = useState(false)
 	const [ipAddress, setIpAddress] = useState("");
-	const { fetchLocation, isApiErr} = useFetchLocation(ipAddress);
-	
-	useEffect(() => {
-		fetchLocation().then((res) => {
-			setLocationData(res?.data);
-		});
-	}, []);
+	console.log(ipAddress)
+	const { fetchLocation, setLocationData, isApiErr} = useFetchLocation(ipAddress);
 
-	const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-		if (e.target.value === "" || !regex.test(ipAddress)){
+	// useEffect(() => {
+	// 	fetchLocation().then((res) => {
+	// 		setLocationData(res?.data);
+	// 	});
+	// }, []);
+
+	const validateInputField = (event: string, ipAddress: string, regex: RegExp)=>{
+
+		console.log(event)
+		console.log(regex)
+
+		console.log(ipAddress.length === 0)
+		console.log(event === "")
+		console.log(!regex.test(ipAddress))
+		
+		if (ipAddress.length === 0 || event === "" || !regex.test(ipAddress)){
+			
+			console.log("pierwszy if")
 			setErr(true)
+			return true
 		} else {
 			setErr(false)
+			return false
 		}
+	}
+
+	const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
 		setIpAddress(e.target.value);
+		console.log(validateInputField(e.target.value, ipAddress, regex))
+		validateInputField(e.target.value, ipAddress, regex)
 	};
 
 	const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
 		e.preventDefault();
-		
-		if (ipAddress === "" || !regex.test(ipAddress)){
-			setErr(true)
-		}  else {
+		console.log("click")
+		console.log(validateInputField("e", ipAddress, regex))
+		if(validateInputField("e",ipAddress, regex)){
+			console.log("lipa")
+		} else {
+			console.log("poszło do Api")
 			fetchLocation().then((res) => {
+				console.log(res)
 				if (res) {
+					console.log(res?.data)
 					setLocationData(res?.data);
 				} else {
 					return null
 				}
 			})
-			setIpAddress("");
 		}
-		
+		setIpAddress("");
 	};
 
 	return (

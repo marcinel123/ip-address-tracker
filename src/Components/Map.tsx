@@ -1,19 +1,22 @@
 import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { MarkerPosition } from "./MarkerPosition/MarkerPosition";
+import { useFetchLocation } from "../api/useFetchLocation";
 
-interface MapPropsType {
-	locationData:
-		| {
-				location: {
-					lat: number;
-					lng: number;
-				};
-		  }
-		| undefined;
-}
+// interface MapPropsType {
+// 	locationData:
+// 		| {
+// 				location: {
+// 					lat: number;
+// 					lng: number;
+// 				};
+// 		  }
+// 		| undefined;
+// }
 
-export const Map = ({ locationData }: MapPropsType) => {
+export const Map = () => {
+	const {locationData } = useFetchLocation("");
+	console.log(locationData)
 	if (!locationData) {
 		return null;
 	}

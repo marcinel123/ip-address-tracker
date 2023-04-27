@@ -1,7 +1,10 @@
 import { ClipLoader } from "react-spinners";
 import { LocationDetailsProps } from "./LocationDetailsPanel.types";
+import { useFetchLocation } from "../../api/useFetchLocation";
 
-export const LocationDetailsPanel = ({ locationData }: LocationDetailsProps) => {
+export const LocationDetailsPanel = () => {
+	const { locationData} = useFetchLocation("");
+	console.log(locationData)
 	if (!locationData) {
 		return null;
 	}
@@ -40,7 +43,7 @@ export const LocationDetailsPanel = ({ locationData }: LocationDetailsProps) => 
 					ISP
 				</p>
 				<p className="text-s sm:text-xs text-black font-bold my-1 sm:my-3">
-				{locationData ? isp.substring(0, 20) : <ClipLoader color="#36d7b7" />}
+				{locationData ? isp : <ClipLoader color="#36d7b7" />}
 				</p>
 			</div>
 		</div>
