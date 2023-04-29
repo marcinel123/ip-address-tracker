@@ -1,46 +1,60 @@
-# Getting Started with Create React App
+# IP Address Tracker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About the project
 
-## Available Scripts
+You can track any IP with this app. Enjoy.
 
-In the project directory, you can run:
+Live version: https://ip-address-tracker-by-ela.netlify.app/
 
-### `npm start`
+Hi there!
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+I am so glad you want to check my app :)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Tech stack
 
-### `npm test`
+<a href="https://reactjs.org/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/react-original-wordmark.svg" alt="React" height="75" /></a>
+<a href="https://en.wikipedia.org/wiki/HTML5" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/html5-original-wordmark.svg" alt="HTML5" height="75" /></a>
+<a href="https://www.javascript.com/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/javascript-original.svg" alt="JavaScript" height="75" /></a> 
+<a href="https://github.com/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/git-scm-icon.svg" alt="Git" height="75" /></a>  
+<a href="https://www.tailwindcss.com/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/tailwindcss.svg" alt="Tailwind CSS" height="50" /></a>  
+<a href="https://www.typescriptlang.org/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/typescript-original.svg" alt="TypeScript" height="50" /></a>  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Setup
 
-### `npm run build`
+1. First what you need to do is to clone this repo.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Go to your terminal and write: `git clone https://github.com/marcinel123/ip-address-tracker.git`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. After cloning is finished you have to enter the folder with this repo so in you terminal write: `cd ip-address-tracker.git` 
+ 
+4. Next thing to do is to install all dependencies so you need to write: `npm install`.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+5. Last thing and we are all setup, please write in terminal: `npm start`
 
-### `npm run eject`
+These simple steps should start the app in you browser.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<table>
+ <tr><td valign="top" width="33%">
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Desktop view:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<img width="609" alt="url1" src="https://user-images.githubusercontent.com/95523781/220840228-69e8313c-101c-41ce-91cd-ef78a953e9a2.png">
+  </td>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<td valign="top" width="33%">
+   
+Mobile view:
 
-## Learn More
+<img width="204" alt="url2" src="https://user-images.githubusercontent.com/95523781/220839738-872ce6de-06c0-4942-ba5e-a42fc87e9741.png">
+   
+</td>
+  
+<td valign="top" width="33%">
+ 
+Active state when creating short link:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+<img width="441" alt="url3" src="https://user-images.githubusercontent.com/95523781/220839764-2b571e9f-3cfd-44f3-b594-a9236ff3f6ab.png">
+ 
+</td>
+ 
+</tr></table>  
