@@ -4,20 +4,16 @@
 
 You can track any IP with this app. Enjoy.
 
+This application uses two main tools:
+
+- IP Geolocation API by IPify.
+- To generate the map I used LeafletJS.
+
 Live version: https://ip-address-tracker-by-ela.netlify.app/
-
-Hi there!
-
-I am so glad you want to check my app :)
 
 ## Tech stack
 
-<a href="https://reactjs.org/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/react-original-wordmark.svg" alt="React" height="75" /></a>
-<a href="https://en.wikipedia.org/wiki/HTML5" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/html5-original-wordmark.svg" alt="HTML5" height="75" /></a>
-<a href="https://www.javascript.com/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/javascript-original.svg" alt="JavaScript" height="75" /></a> 
-<a href="https://github.com/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/git-scm-icon.svg" alt="Git" height="75" /></a>  
-<a href="https://www.tailwindcss.com/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/tailwindcss.svg" alt="Tailwind CSS" height="50" /></a>  
-<a href="https://www.typescriptlang.org/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/typescript-original.svg" alt="TypeScript" height="50" /></a>  
+<a href="https://reactjs.org/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/react-original-wordmark.svg" alt="React" height="75" /></a><a href="https://en.wikipedia.org/wiki/HTML5" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/html5-original-wordmark.svg" alt="HTML5" height="75" /></a><a href="https://www.javascript.com/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/javascript-original.svg" alt="JavaScript" height="75" /></a><a href="https://github.com/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/git-scm-icon.svg" alt="Git" height="75" /></a><a href="https://www.tailwindcss.com/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/tailwindcss.svg" alt="Tailwind CSS" height="50" /></a><a href="https://www.typescriptlang.org/" target="_blank"><img style="margin: 10px" src="https://profilinator.rishav.dev/skills-assets/typescript-original.svg" alt="TypeScript" height="50" /></a>
 
 ## Setup
 
@@ -38,22 +34,22 @@ These simple steps should start the app in you browser.
 
 Desktop view:
 
-<img width="609" alt="url1" src="https://user-images.githubusercontent.com/95523781/220840228-69e8313c-101c-41ce-91cd-ef78a953e9a2.png">
+<img width="609" alt="url1" src="https://user-images.githubusercontent.com/95523781/235311155-bf06e102-fd4f-4379-891b-b6bf4d000798.png">
   </td>
 
 <td valign="top" width="33%">
    
 Mobile view:
 
-<img width="204" alt="url2" src="https://user-images.githubusercontent.com/95523781/220839738-872ce6de-06c0-4942-ba5e-a42fc87e9741.png">
+<img width="204" alt="url2" src="https://user-images.githubusercontent.com/95523781/235311158-13840e09-79d6-429e-9b6d-5ed08fab7970.png">
    
 </td>
   
 <td valign="top" width="33%">
  
-Active state when creating short link:
+Error view when you type in incorrect IP address:
 
-<img width="441" alt="url3" src="https://user-images.githubusercontent.com/95523781/220839764-2b571e9f-3cfd-44f3-b594-a9236ff3f6ab.png">
+<img width="441" alt="url3" src="https://user-images.githubusercontent.com/95523781/235311160-eb950bac-63a8-41cd-af50-05a2e90bfaec.png">
  
 </td>
  
