@@ -1,53 +1,51 @@
 import React, {
 	ChangeEvent,
-	Dispatch,
-	SetStateAction,
 	useEffect,
 	useState,
 } from "react";
-import { useFetchLocation } from "../api/apiFetchLocation";
+import { useFetchLocation } from "../../api/useFetchLocation";
+import { SearchProps } from "./IpAddressForm.types";
+import { validateIpAddress } from "../../utils";
 
-interface SearchProps {
-	setLocationData: Dispatch<SetStateAction<undefined>>;
-}
-
-export const Search = ({ setLocationData }: SearchProps) => {
-	const regex = (/^(([0-9.]?)*)+$/);
+export const IpAddressForm = ({ setLocationData }: SearchProps) => {
+	
 	const [ipAddress, setIpAddress] = useState("");
-	const { fetchLocation, isError, setIsError } = useFetchLocation(ipAddress);
+	const [isformErr, setisFormErr] = useState(false)
+	const { fetchLocation, isApiError} = useFetchLocation(ipAddress);
 	
 	useEffect(() => {
 		fetchLocation().then((res) => {
-			setLocationData(res?.data);
+			setLocationData(res?.data)
 		});
 	}, []);
 
 	const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-		if (e.target.value === "" || !regex.test(ipAddress)){
-			setIsError(true)
+		if(validateIpAddress(e.target.value)){
+			setisFormErr(true)
 		} else {
-			setIsError(false)
+			setisFormErr(false)
 		}
 		setIpAddress(e.target.value);
 	};
 
+	const handleFetchData = ()=>{
+		fetchLocation().then((res) => {
+			if (res) {
+				setLocationData(res?.data);
+			} else {
+				setisFormErr(true)
+				return null
+			}
+		})
+	}
 	const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
 		e.preventDefault();
-		
-		if (ipAddress === "" || !regex.test(ipAddress)){
-			setIsError(true)
-		}  else {
-			fetchLocation().then((res) => {
-				if (res) {
-					setLocationData(res?.data);
-				} else {
-					setIsError(true)
-					return null
-				}
-			})
-			setIpAddress("");
+		if(validateIpAddress(ipAddress)){
+			setisFormErr(true)
+		} else {
+			handleFetchData()
+					setIpAddress("");
 		}
-		
 	};
 
 	return (
@@ -73,7 +71,8 @@ export const Search = ({ setLocationData }: SearchProps) => {
 					&gt;
 				</button>
 			</form>
-			{isError ? <p className="text-s text-white font-semibold sm:-mt-20">Please enter a valid IP address</p> : null}
+			{isformErr ? <p className="text-s text-white font-semibold sm:-mt-20">Please enter a valid IP address.</p> : null}
+			{isApiError ? <p className="text-s text-white font-semibold sm:-mt-20">There is no response from server.</p> : null}
 		</div>
 	);
 };
