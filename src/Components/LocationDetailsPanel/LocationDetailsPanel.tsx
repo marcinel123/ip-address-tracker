@@ -1,22 +1,7 @@
 import { ClipLoader } from "react-spinners";
+import { LocationDetailsProps } from "./LocationDetailsPanel.types";
 
-export interface LocationDetailsProps {
-	locationData:
-		| {
-				as: object;
-				ip: string;
-				isp: string;
-				location: {
-					country: string;
-					timezone: string;
-					city: string;
-					region: string;
-				};
-		  }
-		| undefined;
-}
-
-export const LocationDetails = ({ locationData }: LocationDetailsProps) => {
+export const LocationDetailsPanel = ({ locationData }: LocationDetailsProps) => {
 	if (!locationData) {
 		return null;
 	}
@@ -30,7 +15,7 @@ export const LocationDetails = ({ locationData }: LocationDetailsProps) => {
 					IP ADDRESS
 				</p>
 				<p className="text-s sm:text-xs text-black font-bold my-1 sm:my-3">
-					{locationData ? ip : <ClipLoader color="##5974db" />}
+					{locationData ? ip : <ClipLoader color="#5974db" />}
 				</p>
 			</div>
 			<div className="flex flex-col sm:w-1/4 pl-4 items-center sm:items-start">
@@ -38,8 +23,8 @@ export const LocationDetails = ({ locationData }: LocationDetailsProps) => {
 					LOCATION
 				</p>
 				<p className="text-s sm:text-xs text-center text-black font-bold my-1 sm:my-3">
-				{locationData ? country : <ClipLoader color="##5974db" />}, 
-				{locationData ? city : <ClipLoader color="##5974db" />}, 
+				{locationData ? country : <ClipLoader color="#5974db" />}, 
+				{locationData ? city : <ClipLoader color="#5974db" />}, 
 				</p>
 			</div>
 			<div className="flex flex-col sm:w-1/4 pl-4 items-center sm:items-start">
@@ -47,7 +32,7 @@ export const LocationDetails = ({ locationData }: LocationDetailsProps) => {
 					TIMEZONE
 				</p>
 				<p className="text-s sm:text-xs text-black font-bold my-1 sm:my-3">
-				{locationData ? timezone : <ClipLoader color="##5974db" />}
+				{locationData ? timezone : <ClipLoader color="#5974db" />}
 				</p>
 			</div>
 			<div className="flex flex-col sm:w-1/4 pl-4 items-center sm:items-start">

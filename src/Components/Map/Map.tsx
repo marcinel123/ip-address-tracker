@@ -1,17 +1,7 @@
 import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { MarekPosition } from "./MarkerPosition/MarekPosition";
-
-interface MapPropsType {
-	locationData:
-		| {
-				location: {
-					lat: number;
-					lng: number;
-				};
-		  }
-		| undefined;
-}
+import { MapPropsType } from "./Map.types";
+import { MarkerPosition } from "../MarkerPosition/MarkerPosition";
 
 export const Map = ({ locationData }: MapPropsType) => {
 	if (!locationData) {
@@ -31,7 +21,7 @@ export const Map = ({ locationData }: MapPropsType) => {
 				attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 				url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
 			/>
-			<MarekPosition positionLat={lat} postionLng={lng} />
+			<MarkerPosition positionLat={lat} postionLng={lng} />
 		</MapContainer>
 	);
 };
